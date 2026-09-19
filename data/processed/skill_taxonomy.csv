@@ -1,0 +1,76 @@
+skill_id,skill_name,category,parent_skill,difficulty,prerequisites,importance_baseline
+SK001,Python,Programming,None,Beginner,,0.95
+SK002,R,Programming,None,Intermediate,Python,0.6
+SK003,SQL,Databases & SQL,None,Beginner,,0.9
+SK004,Java,Programming,None,Intermediate,,0.7
+SK005,C++,Programming,None,Advanced,,0.65
+SK006,Scala,Programming,Java,Intermediate,Java,0.6
+SK007,Bash/Shell Scripting,Cloud & DevOps,Linux,Beginner,,0.75
+SK008,JavaScript,Web & API Development,None,Beginner,,0.7
+SK009,TypeScript,Web & API Development,JavaScript,Intermediate,JavaScript,0.65
+SK010,Go,Programming,None,Intermediate,,0.6
+SK011,Linear Algebra,Mathematics & Statistics,None,Beginner,,0.8
+SK012,Multivariate Calculus,Mathematics & Statistics,None,Intermediate,Linear Algebra,0.75
+SK013,Probability & Statistics,Mathematics & Statistics,None,Beginner,,0.85
+SK014,Hypothesis Testing & A/B Testing,Mathematics & Statistics,Probability & Statistics,Intermediate,Probability & Statistics,0.8
+SK015,Bayesian Inference,Mathematics & Statistics,Probability & Statistics,Advanced,Probability & Statistics,0.65
+SK016,Exploratory Data Analysis,Data Science & ML,Python,Beginner,Python,0.9
+SK017,Pandas & NumPy,Data Science & ML,Python,Beginner,Python,0.95
+SK018,Scikit-Learn,Data Science & ML,Python,Intermediate,"Pandas & NumPy,Linear Algebra",0.9
+SK019,Supervised Learning,Data Science & ML,Scikit-Learn,Intermediate,Scikit-Learn,0.9
+SK020,Unsupervised Learning,Data Science & ML,Scikit-Learn,Intermediate,Scikit-Learn,0.85
+SK021,Feature Engineering,Data Science & ML,Scikit-Learn,Intermediate,Pandas & NumPy,0.9
+SK022,XGBoost & LightGBM,Data Science & ML,Scikit-Learn,Intermediate,Supervised Learning,0.88
+SK023,Model Evaluation & Cross-Validation,Data Science & ML,Scikit-Learn,Intermediate,Supervised Learning,0.85
+SK024,Time Series Forecasting,Data Science & ML,Scikit-Learn,Intermediate,"Supervised Learning,Probability & Statistics",0.75
+SK025,Neural Networks Fundamentals,Deep Learning & AI,Scikit-Learn,Intermediate,"Multivariate Calculus,Linear Algebra",0.88
+SK026,PyTorch,Deep Learning & AI,Neural Networks Fundamentals,Intermediate,"Neural Networks Fundamentals,Python",0.92
+SK027,TensorFlow & Keras,Deep Learning & AI,Neural Networks Fundamentals,Intermediate,"Neural Networks Fundamentals,Python",0.82
+SK028,Convolutional Neural Networks (CNN),Deep Learning & AI,PyTorch,Intermediate,PyTorch,0.8
+SK029,Computer Vision (OpenCV),Deep Learning & AI,Convolutional Neural Networks (CNN),Intermediate,"Python,Convolutional Neural Networks (CNN)",0.8
+SK030,Recurrent Neural Networks (RNN/LSTM),Deep Learning & AI,PyTorch,Intermediate,PyTorch,0.75
+SK031,Transformers & Attention Mechanisms,Deep Learning & AI,PyTorch,Advanced,"PyTorch,Neural Networks Fundamentals",0.92
+SK032,Hugging Face Ecosystem,Deep Learning & AI,Transformers & Attention Mechanisms,Intermediate,"PyTorch,Transformers & Attention Mechanisms",0.9
+SK033,Large Language Models (LLMs),Deep Learning & AI,Transformers & Attention Mechanisms,Advanced,Hugging Face Ecosystem,0.95
+SK034,Retrieval-Augmented Generation (RAG),Deep Learning & AI,Large Language Models (LLMs),Advanced,"Large Language Models (LLMs),Vector Databases",0.92
+SK035,Prompt Engineering & Fine-Tuning,Deep Learning & AI,Large Language Models (LLMs),Intermediate,Large Language Models (LLMs),0.85
+SK036,Natural Language Processing (NLP),Deep Learning & AI,Python,Intermediate,"Python,Scikit-Learn",0.88
+SK037,Data Warehousing & Modeling,Data Engineering & Big Data,SQL,Intermediate,SQL,0.85
+SK038,ETL / ELT Pipelines,Data Engineering & Big Data,Python,Intermediate,"Python,SQL",0.9
+SK039,Apache Spark / PySpark,Data Engineering & Big Data,Python,Advanced,"Python,SQL,Data Warehousing & Modeling",0.92
+SK040,Apache Kafka,Data Engineering & Big Data,None,Advanced,"Java,Bash/Shell Scripting",0.85
+SK041,Apache Airflow,Data Engineering & Big Data,Python,Intermediate,"Python,ETL / ELT Pipelines",0.88
+SK042,Snowflake,Data Engineering & Big Data,SQL,Intermediate,"SQL,Data Warehousing & Modeling",0.85
+SK043,Databricks,Data Engineering & Big Data,Apache Spark / PySpark,Intermediate,"Apache Spark / PySpark,Python",0.88
+SK044,DBT (Data Build Tool),Data Engineering & Big Data,SQL,Intermediate,"SQL,Data Warehousing & Modeling",0.8
+SK045,Hadoop & HDFS,Data Engineering & Big Data,None,Intermediate,"Java,Linux",0.7
+SK046,PostgreSQL / MySQL,Databases & SQL,SQL,Beginner,SQL,0.9
+SK047,NoSQL & MongoDB,Databases & SQL,None,Beginner,,0.78
+SK048,Redis & Caching,Databases & SQL,None,Intermediate,,0.75
+SK049,Vector Databases (Chroma/Pinecone/Milvus),Databases & SQL,Large Language Models (LLMs),Intermediate,Python,0.88
+SK050,Database Indexing & Query Tuning,Databases & SQL,PostgreSQL / MySQL,Advanced,PostgreSQL / MySQL,0.82
+SK051,Linux & Bash,Cloud & DevOps,None,Beginner,,0.85
+SK052,Docker & Containerization,Cloud & DevOps,Linux & Bash,Intermediate,Linux & Bash,0.92
+SK053,Kubernetes,Cloud & DevOps,Docker & Containerization,Advanced,Docker & Containerization,0.85
+SK054,"AWS (S3, EC2, Lambda, SageMaker)",Cloud & DevOps,None,Intermediate,Linux & Bash,0.92
+SK055,"Azure (ADF, Databricks, Azure ML)",Cloud & DevOps,None,Intermediate,Cloud & DevOps,0.85
+SK056,Google Cloud Platform (GCP & BigQuery),Cloud & DevOps,None,Intermediate,SQL,0.85
+SK057,CI/CD Pipelines (GitHub Actions),Cloud & DevOps,Git & GitHub,Intermediate,"Git & GitHub,Docker & Containerization",0.85
+SK058,MLflow & Experiment Tracking,Cloud & DevOps,Scikit-Learn,Intermediate,"Python,Scikit-Learn",0.88
+SK059,DVC (Data Version Control),Cloud & DevOps,Git & GitHub,Intermediate,Git & GitHub,0.8
+SK060,Model Serving & FastAPI,Web & API Development,Python,Intermediate,Python,0.9
+SK061,Power BI & DAX,Business Intelligence & Viz,SQL,Intermediate,SQL,0.9
+SK062,Tableau,Business Intelligence & Viz,SQL,Intermediate,SQL,0.88
+SK063,Plotly & Dash / Streamlit,Business Intelligence & Viz,Python,Beginner,Python,0.88
+SK064,Matplotlib & Seaborn,Business Intelligence & Viz,Python,Beginner,Python,0.85
+SK065,Advanced Excel & VBA,Business Intelligence & Viz,None,Beginner,,0.8
+SK066,Data Storytelling & KPI Dashboards,Business Intelligence & Viz,None,Intermediate,Power BI & DAX,0.85
+SK067,Data Structures & Algorithms,Core CS & Systems,None,Intermediate,Python,0.9
+SK068,Git & GitHub,Core CS & Systems,None,Beginner,,0.95
+SK069,System Design & Distributed Systems,Core CS & Systems,None,Advanced,Data Structures & Algorithms,0.85
+SK070,RESTful API Design,Web & API Development,Python,Intermediate,Python,0.88
+SK071,Problem Solving & Critical Thinking,Domain & Soft Skills,None,Beginner,,0.9
+SK072,Stakeholder Communication,Domain & Soft Skills,None,Beginner,,0.88
+SK073,Agile & Scrum Methodologies,Domain & Soft Skills,None,Beginner,,0.82
+SK074,Business Acumen & Domain Knowledge,Domain & Soft Skills,None,Intermediate,,0.85
+SK075,Research Paper Implementation,Domain & Soft Skills,PyTorch,Advanced,"PyTorch,Transformers & Attention Mechanisms",0.8

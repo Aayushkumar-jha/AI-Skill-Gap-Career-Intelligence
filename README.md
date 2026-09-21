@@ -1,183 +1,117 @@
-﻿# AI Skill-Gap & Career Intelligence Engine
-> **An ML-Driven Career Decision-Support & Employability Acceleration Platform**  
-> *Developed for Smart India Hackathon (SIH) & B.Tech Capstone Project Excellence*
+# AI Skill Gap & Career Intelligence System
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B.svg)](https://streamlit.io/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E.svg)](https://scikit-learn.org/)
-[![Database](https://img.shields.io/badge/SQLite-Indexed-003B57.svg)](https://www.sqlite.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+**SIH Problem Statement ID: 25001**
 
 ---
 
-## 📌 Executive Summary
-Technology stacks and hiring bars shift at an unprecedented pace. Candidates and fresh graduates frequently struggle to answer three critical questions:
-1. *Which career role truly aligns with my current skills?*
-2. *What is my quantitative skill deficiency against industry benchmarks?*
-3. *Which missing skill must I prioritize learning first to maximize my hiring potential?*
+## Why This Project?
 
-The **AI Skill-Gap & Career Intelligence Engine** solves this problem using an end-to-end Data Science and Machine Learning methodology. Unlike generic job boards that rely on superficial keyword matching or black-box LLMs, this system processes **12,000+ job market postings**, extracts skills with **quantitative proficiency scoring (0.1–1.0)**, classifies role suitability with **98.9% test accuracy**, computes **market-weighted skill gap priorities**, sequences **prerequisite-aware DAG roadmaps**, provides **Explainable AI (SHAP)** score attribution, and features a signature **What-If Career Simulator**.
+Rapid technological shifts and changing industry demands make it difficult for job seekers and professionals to identify which skills are becoming obsolete and which are critical for career growth. Traditional career guidance often relies on static advice rather than data-backed analysis. This project was developed to bridge the gap between individual career aspirations and actual market demand by transforming raw job market data into actionable, personalized career intelligence.
 
 ---
 
-## 🌟 Key Features
+## What This Project Solves
 
-| Feature | Description |
-| :--- | :--- |
-| **Resume Intelligence** | Multi-format resume extraction (PDF, Word DOCX, text) capturing experience duration, education, and technical skills. |
-| **Contextual Proficiency Scoring** | Evaluates skills on a continuous 0.1 to 1.0 confidence scale based on frequency, seniority markers, and project context. |
-| **Supervised Role Classification** | 120-tree Random Forest ensemble predicting suitability across 12 tech roles with 98.89% holdout accuracy. |
-| **Multi-Factor Skill Priority Engine** | Ranks missing competencies using: $\text{Priority} = 0.35 \cdot \text{Demand} + 0.30 \cdot \text{Importance} + 0.20 \cdot \text{Deficiency} + 0.15 \cdot \text{PrereqReadiness}$. |
-| **Prerequisite-Aware DAG Roadmap** | Topological graph sort preventing advanced topics from being scheduled before foundational prerequisites. |
-| **What-If Career Simulator** | Interactive sandbox allowing candidates to simulate the employability gains of acquiring hypothetical skills before learning them. |
-| **Explainable AI (XAI)** | Transparent attribution highlighting positive drivers boosting match scores and missing gap penalties pulling scores down. |
-| **Market Intelligence Dashboard** | Visual analytics on 12,000+ postings: salary boxplots (LPA), top hiring tech firms, and regional demand maps. |
+* **Skill Misalignment:** Identifies exact gaps between a user's current skill set and target industry requirements.
+* **Lack of Transparency:** Provides clear, explainable insights into why specific skills or roles are recommended, avoiding "black-box" decision-making.
+* **Uncertain Career Mobility:** Enables users to simulate hypothetical skill acquisitions and visually assess their potential career progression before investing time in learning.
+* **Fragmented Learning:** Recommends targeted learning resources mapped directly to identified skill deficiencies.
 
 ---
 
-## 🏗️ System Architecture
+## Approach
 
-```
-                               ┌───────────────────────────┐
-                               │  Candidate Resume / Text  │
-                               └─────────────┬─────────────┘
-                                             │
-                                             ▼
-                               ┌───────────────────────────┐
-                               │   NLP Extraction Layer    │
-                               │  (Aliases, N-grams, Prof) │
-                               └─────────────┬─────────────┘
-                                             │
-                     ┌───────────────────────┴───────────────────────┐
-                     ▼                                               ▼
-         ┌───────────────────────┐                       ┌───────────────────────┐
-         │  Job Market Knowledge │                       │    Skill Taxonomy     │
-         │ (12k Jobs, SQLite DB) │                       │  (75 Skills, DAG Map) │
-         └───────────┬───────────┘                       └───────────┬───────────┘
-                     │                                               │
-                     └───────────────────────┬───────────────────────┘
-                                             │
-                                             ▼
-                               ┌───────────────────────────┐
-                               │    Feature Engineering    │
-                               │   (Coverage, Exp, Cat)    │
-                               └─────────────┬─────────────┘
-                                             │
-                ┌────────────────────────────┼────────────────────────────┐
-                ▼                            ▼                            ▼
-   ┌──────────────────────────┐ ┌──────────────────────────┐ ┌──────────────────────────┐
-   │  ML Role Classification  │ │   Skill-Gap & Priority   │ │   What-If Career Sim   │
-   │  (Random Forest 98.9%)   │ │    Multi-Factor Engine   │ │   (Hypothetical Delta) │
-   └────────────┬─────────────┘ └────────────┬─────────────┘ └────────────┬─────────────┘
-                │                            │                            │
-                ▼                            ▼                            ▼
-   ┌──────────────────────────┐ ┌──────────────────────────┐ ┌──────────────────────────┐
-   │   Explainable AI (XAI)   │ │  Topological Learning    │ │   Dynamic Comparative  │
-   │   (Positive / Negative)  │ │      Roadmap DAG         │ │    Score Trajectory    │
-   └────────────┬─────────────┘ └────────────┬─────────────┘ └────────────┬─────────────┘
-                │                            │                            │
-                └────────────────────────────┼────────────────────────────┘
-                                             │
-                                             ▼
-                               ┌───────────────────────────┐
-                               │ 8-Page Streamlit Web App  │
-                               └───────────────────────────┘
-```
+The system follows a multi-stage data processing and intelligence pipeline:
+
+1. **Data Ingestion & Preprocessing:** Cleans and standardizes raw job market datasets, extracting skill keywords and constructing a structured skill taxonomy.
+2. **Profile & Gap Analysis:** Compares user-provided skill profiles against target role requirements using dataset-backed taxonomy mapping to highlight missing core and emerging competencies.
+3. **Simulation & Explainability Engine:** Runs dynamic scenario simulations ("What-If" analysis) to show how acquiring new skills impacts role compatibility, supported by model explainability metrics.
+4. **Interactive Visualization:** Presents actionable insights, market trends, and tailored roadmaps via a multi-page interactive web dashboard.
 
 ---
 
-## 📂 Project Directory Structure
+## Tools and Techniques
 
-```text
-Ai skill gap project/
-├── config.py                       # Central configurations, role lists, weights
-├── requirements.txt                # Python package dependencies
-├── README.md                       # Comprehensive documentation
-├── LICENSE                         # MIT License
-├── data/
-│   ├── raw/                        # skills.csv, job_postings.csv, learning_resources.csv
-│   └── processed/                  # cleaned_jobs.csv, job_skills.csv, skill_taxonomy.csv
-├── database/
-│   └── career_intelligence.db      # 25MB SQLite relational database with indexes
-├── src/
-│   ├── data/                       # loader.py, db_manager.py
-│   ├── nlp/                        # text_cleaner.py, resume_parser.py, skill_extractor.py
-│   ├── features/                   # feature_engineering.py
-│   ├── models/                     # role_classifier.py
-│   ├── recommendation/             # skill_gap.py, skill_priority.py, learning_path.py
-│   ├── explainability/             # shap_analysis.py
-│   └── evaluation/                 # metrics.py
-├── models/
-│   ├── role_model.pkl              # Serialized 120-tree Random Forest weights
-│   ├── scaler.pkl                  # Fitted StandardScaler
-│   └── model_metadata.json         # Training metrics and feature column names
-├── app/
-│   ├── app.py                      # Streamlit entry point
-│   ├── components/                 # charts.py, ui_helpers.py
-│   └── pages/
-│       ├── 1_Profile.py            # Resume parser & skill proficiency editor
-│       ├── 2_Career_Analysis.py    # Role suitability predictions & radar charts
-│       ├── 3_Skill_Gap.py          # Matched, partial, missing priority matrix
-│       ├── 4_Market_Trends.py      # Demand frequency & salary LPA distributions
-│       ├── 5_Learning_Path.py      # Topological DAG personalized roadmap
-│       ├── 6_What_If_Simulator.py  # Interactive hypothetical skill sandbox
-│       ├── 7_Explainability.py     # Explainable AI (XAI) feature impact drivers
-│       └── 8_Model_Evaluation.py   # Confusion matrices & benchmark reports
-├── notebooks/
-│   ├── 01_data_cleaning_eda.ipynb  # Phase 3 EDA & cleaning
-│   ├── 02_nlp_skill_extraction.ipynb# Phase 4 NLP pipeline demonstration
-│   └── 03_model_training_evaluation.ipynb # Phase 8 & 11 ML & XAI
-├── tests/
-│   ├── test_nlp.py                 # Resume parsing and alias tests
-│   ├── test_models.py              # Feature vectors and inference tests
-│   └── test_recommendation.py      # Gap ranking and DAG roadmap tests
-└── scripts/
-    ├── generate_full_market_and_resources.py # Dataset synthesis
-    └── train_pipeline.py           # Model training and artifact serialization
-```
+* **Language & Frameworks:** Python, Streamlit
+* **Data Processing & Analytics:** Pandas, NumPy
+* **Data Visualization:** Plotly
+* **Database & Storage:** SQLite (`career_intelligence.db`)
+* **Development & Testing:** `pytest`, Modular Component Architecture
 
 ---
 
-## 🚀 Quick Start Guide
+## Overview / Insights
 
-### 1. Prerequisites & Installation
-Ensure Python 3.10+ is installed on your system. Clone or open the project folder and install dependencies:
+The application is structured into a multi-page interface:
+
+* **Profile Setup (`1_Profile.py`):** Captures user expertise, domain, and target roles.
+* **Career Analysis (`2_Career_Analysis.py`):** Evaluates overall profile compatibility with selected job roles.
+* **Skill Gap Analysis (`3_Skill_Gap.py`):** Pinpoints critical, secondary, and emerging skill shortages.
+* **Market Trends (`4_Market_Trends.py`):** Visualizes hiring trends, skill demand, and market shifts.
+* **Learning Path (`5_Learning_Path.py`):** Recommends curated learning resources mapped to specific gaps.
+* **What-If Simulator (`6_What_If_Simulator.py`):** Simulates career trajectory improvements upon acquiring new skills.
+* **Explainability (`7_Explainability.py`):** Offers clear rationale and transparency for system recommendations.
+
+---
+
+## Skills Demonstrated
+
+* **Full-Stack Data Application Development:** Building modular multi-page applications using Streamlit and Python.
+* **Data Engineering & Taxonomy Design:** Cleaning raw job datasets and designing structured relational database schemas (`SQLite`).
+* **Interactive Data Visualization:** Developing dynamic charts and dashboard components using Plotly.
+* **Explainable AI (XAI) Concepts:** Designing transparent recommendation logic and interactive decision-simulation tools.
+* **Software Architecture:** Organizing clean directory structures, modular codebases, and component-based UI setups.
+
+---
+
+## How to Use This Project
+
+### 1. Prerequisites
+
+Ensure you have Python 3.10 or higher installed.
+
+### 2. Environment Setup
+
+Clone the repository and set up a virtual environment:
+
 ```bash
-pip install -r requirements.txt
+git clone <repository-url>
+cd "Ai skill gap project"
+
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
 ```
 
-### 2. Run Automated Test Suite
-Verify that all 9 unit and integration tests pass cleanly:
+### 3. Install Dependencies
+
 ```bash
-pytest tests/
+pip install streamlit pandas plotly pytest
+
 ```
 
-### 3. Launch the Interactive Streamlit Web Application
-Run the multi-page dashboard:
+### 4. Run the Application
+
+Launch the Streamlit web dashboard:
+
 ```bash
-streamlit run app/app.py
+streamlit run app/Home.py
+
 ```
-Open your browser at `http://localhost:8501`.
 
 ---
 
-## 🎯 Target Roles Covered
-The engine is calibrated across 12 high-demand industry profiles:
-1. **Data Scientist**
-2. **Machine Learning Engineer**
-3. **Data Analyst**
-4. **Data Engineer**
-5. **BI Developer**
-6. **MLOps Engineer**
-7. **AI Research Scientist**
-8. **Backend Software Engineer**
-9. **NLP Engineer**
-10. **Computer Vision Engineer**
-11. **Cloud Data Architect**
-12. **Business Analyst**
+## Future Scope
+
+* **Real-time Job Scraper Integration:** Connect live API pipelines (e.g., LinkedIn, Indeed) to auto-update market trends dynamically.
+* **Advanced NLP Skill Extraction:** Integrate Transformer-based Named Entity Recognition (NER) models to extract implicit skills directly from uploaded PDF resumes.
+* **Gamified Learning Roadmaps:** Add interactive progress tracking and milestone badges for completing recommended learning paths.
+* **Collaborative Filtering:** Incorporate peer-matching algorithms to connect users with mentors who have successfully navigated similar career transitions.
 
 ---
 
-## 📄 Resume Positioning & B.Tech Capstone Summary
-**Project Title**: *AI Skill-Gap & Career Intelligence Engine*  
-**Description**: *Designed and engineered an explainable ML-based career intelligence platform that analyzes 12,000+ job postings and candidate resumes to predict career role suitability, quantify skill deficiencies, prioritize high-impact gaps using market demand, and generate prerequisite-aware personalized learning pathways using NLP, Random Forest (98.9% accuracy), and SHAP-based explainability.*
+## Author
+
+**Computer Science & Engineering Student**
+
+*SIH Project Developer & Data Analytics Enthusiast*

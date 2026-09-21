@@ -39,7 +39,7 @@ The system follows a multi-stage data processing and intelligence pipeline:
 
 ---
 
-## Overview / Insights
+## Overview 
 
 The application is structured into a multi-page interface:
 
@@ -53,7 +53,7 @@ The application is structured into a multi-page interface:
 
 ---
 
-## Skills Demonstrated
+## Skills
 
 * **Full-Stack Data Application Development:** Building modular multi-page applications using Streamlit and Python.
 * **Data Engineering & Taxonomy Design:** Cleaning raw job datasets and designing structured relational database schemas (`SQLite`).

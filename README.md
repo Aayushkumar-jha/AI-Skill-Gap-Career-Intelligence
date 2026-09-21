@@ -1,6 +1,5 @@
 # AI Skill Gap & Career Intelligence System
 
-**SIH Problem Statement ID: 25001**
 
 ---
 
@@ -112,6 +111,4 @@ streamlit run app/Home.py
 
 ## Author
 
-**Computer Science & Engineering Student**
-
-*SIH Project Developer & Data Analytics Enthusiast*
+**Aspiring Data Scientist| Open to Internships,Oportunities**

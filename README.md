@@ -207,4 +207,4 @@ The application provides an interactive interface for **career analysis, skill-g
 
 ## Author
 
-**Aspiring Data Scientist| Open to Internships,Oportunities**
+**Aspiring Data Scientist| Open to Internships,Opportunities**
